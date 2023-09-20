@@ -5,8 +5,8 @@ import UserName from '../users/UserName';
 export default function Header() {
   return (
     <div
-      className="font-robotoMono border-b-2
-     border-stone-500 bg-yellow-500 p-4 uppercase  sm:px-6  "
+      className="flex items-center justify-between 
+      border-b-2 border-stone-200 bg-yellow-400 px-4 py-3 font-robotoMono uppercase sm:px-6  "
     >
       <Link to="/" className="tracking-widest">
         Fast React Pizza Co.

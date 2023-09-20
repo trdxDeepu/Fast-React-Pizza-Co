@@ -1,11 +1,7 @@
-
-
 const UserName = () => {
   return (
-    <div className="text-sm font-robotoMono font-semibold ">
-      Deependra
-    </div>
-  )
-}
+    <div className="font-robotoMono text-sm font-semibold md:block ">Deependra</div>
+  );
+};
 
-export default UserName
+export default UserName;
