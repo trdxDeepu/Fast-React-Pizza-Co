@@ -8,7 +8,7 @@ export default function Header() {
       className="flex items-center justify-between 
       border-b-2 border-stone-200 bg-yellow-400 px-4 py-3 font-robotoMono uppercase sm:px-6  "
     >
-      <Link to="/" className="tracking-widest">
+      <Link to="/" className="tracking-widest font-semibold">
         Fast React Pizza Co.
       </Link>
       <SearchOrder />
