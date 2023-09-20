@@ -3,12 +3,11 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {
-      fontFamily: {
-        robotoMono: ['Roboto Mono', 'monospace'],
-        varelaRound: ['Varela Round', 'sans-serif'],
-      },
+    fontFamily: {
+      robotoMono: ['Roboto Mono', 'monospace'],
+      varelaRound: ['Varela Round', 'sans-serif'],
     },
+    extend: {},
   },
   plugins: [],
 };
