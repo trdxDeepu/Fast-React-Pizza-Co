@@ -2,23 +2,26 @@
 /* eslint-disable no-unused-vars */
 import { formatCurrency } from '../../utils/helpers';
 import Button from '../../ui/Button';
-import { useDispatch } from 'react-redux';
-import { addItem } from '../cart/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, getCurrentCartQuantity } from '../cart/cartSlice';
+import DeleteItem from '../cart/DeleteItem';
 
 function MenuItem({ pizza }) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
 
-  function handleAddtoCart(){
-    
+  const currentQuantity = useSelector(getCurrentCartQuantity(id));
+  const isInCart = currentQuantity > 0;
+
+  function handleAddtoCart() {
     const newItem = {
       pizzaId: id,
       name,
-      quantity:1,
+      quantity: 1,
       unitPrice,
-      totalPrice : unitPrice * 1,
-    }
-    dispatch(addItem(newItem))
+      totalPrice: unitPrice * 1,
+    };
+    dispatch(addItem(newItem));
   }
 
   return (
@@ -44,8 +47,13 @@ function MenuItem({ pizza }) {
               Sold out
             </p>
           )}
-
-          {!soldOut && <Button type='small' onClick={handleAddtoCart}> Add to Cart </Button>}
+          {isInCart && <DeleteItem pizzaId={id} />}
+          {!soldOut && !isInCart && (
+            <Button type="small" onClick={handleAddtoCart}>
+              {' '}
+              Add to Cart{' '}
+            </Button>
+          )}
         </div>
       </div>
     </li>
